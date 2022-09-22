@@ -16,19 +16,27 @@ print('''
 
 word = []
 word_length = len(chosen_word)
+
 for n in chosen_word:
     word.append('_')
 print(word)
+
+
 chances = 6
+
 while '_' in word:
     guess = input("Guess a letter: ").lower()
+
     for posicao in range(word_length):
         letra = chosen_word[posicao]
         if guess in letra:
             word[posicao] = letra
+
     print(word)
+
     if not guess in chosen_word:
         chances -= 1
+
     if chances == 5:
         print('''
       +---+

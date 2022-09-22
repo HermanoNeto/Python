@@ -50,21 +50,26 @@ def compare():
         if computer_score == user_score:
             return "Its a Draw"
         return "You Win"
+
     if computer_score == user_score:
         return "Its a Draw"
+
     if computer_score < 21:
         if computer_score > user_score:
             if computer_score < 17:
                 computer_cards.append(shuffle())
                 return compare()
             return "You Lost\nComputer Wins"
+
         if computer_score < user_score:
             if computer_score < 17:
                 computer_cards.append(shuffle())
                 return compare()
             return "You Win"
+
     if computer_score == 21:
         return "Computer Wins"
+        
     if computer_score > 21:
         return "Computer Lose\nYou Win"
 
