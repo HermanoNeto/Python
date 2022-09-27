@@ -1,18 +1,18 @@
 import pandas as pd
 
-nato_csv = pd.read_csv("nato_phonetic_alphabet.csv")
-alphabet=pd.DataFrame(nato_csv)
+alphabet = pd.read_csv("nato_phonetic_alphabet.csv")
+
+nato_dict={row.letter:row.code for (index, row) in alphabet.iterrows()}
+
+def gen_phonetic():
+    user_word=input("Enter a word: ").upper()
+    try:
+        translation=[nato_dict[letter] for letter in user_word]
+    except KeyError:
+        print("Sorry, only letters in the alphabet please")
+        return gen_phonetic()
+    else:
+        print(translation)
 
 
-nato_alphabet_dict={row.letter:row.code for (index, row) in alphabet.iterrows()}
-
-
-user_word=input("Enter a word: ")
-
-
-spelled_word=[letter.upper() for letter in user_word]
-
-translation=[nato_alphabet_dict[letter] for letter in spelled_word]
-
-
-print(translation)
+gen_phonetic()
