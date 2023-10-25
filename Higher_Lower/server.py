@@ -6,7 +6,7 @@ CORRECT_NUMBER = random.randint(0,9)
 print(CORRECT_NUMBER)
 
 @app.route("/")
-def hello_world():
+def HomePage():
     return """
     <h1 style='text-align: center; color: white;'>Guess a number between 0 and 9</h1>
 
